@@ -1,5 +1,6 @@
 package net.ingressmod.ingressmod;
 
+import ibxm.Player;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -28,6 +29,7 @@ public class BlockPortalCore extends Block{
 			+ world.toString()
 			+ "/Player:" + entityPlayer.toString()
 			+ "/x,z,y" + x + "," + z + "," + y);
-		return false;
+		entityPlayer.openGui(ingressmod.instance, 3, world, x, y, z);
+		return true;
 	}
 }
