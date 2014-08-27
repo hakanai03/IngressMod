@@ -21,82 +21,82 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 
 
 @Mod(
-		modid = ingressmod.MODID,
-		name = "ingressmod",
-		version = ingressmod.VERSION
+        modid = ingressmod.MODID,
+        name = "ingressmod",
+        version = ingressmod.VERSION
 )
 
 
 
 public class ingressmod {
-	//proxy‚Ìİ’è
-	@SidedProxy(clientSide = "net.ingressmod.ingressmod.ClientProxy", serverSide = "net.ingressmod.ingressmod.CommonProxy")
-	public static ClientProxy proxy;
+    //proxyã®è¨­å®š
+    @SidedProxy(clientSide = "net.ingressmod.ingressmod.ClientProxy", serverSide = "net.ingressmod.ingressmod.CommonProxy")
+    public static ClientProxy proxy;
 
-	public static final String MODID = "ingressmod";
-	public static final String VERSION = "0.0.1";
+    public static final String MODID = "ingressmod";
+    public static final String VERSION = "0.0.1";
 
-	public static final String MODHEAD = "[IngressMod] ";
+    public static final String MODHEAD = "[IngressMod] ";
 
-	public static Block portalBlock;
+    public static Block portalBlock;
 
-	@Instance("ingressmod")
-	public static ingressmod instance;
-
-
-	@Mod.EventHandler
-	public void PreInit(FMLPreInitializationEvent event){
-		System.out.print(MODHEAD + "Pre Initialization ...");
-
-		instance = this;
-		NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
+    @Instance("ingressmod")
+    public static ingressmod instance;
 
 
-		//ƒRƒ“ƒtƒBƒO‚ğƒ[ƒh‚·‚éˆ—
-		Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
-		try{
-			cfg.load();
-			//Property portalBlock = cfg.get(cfg.CATEGORY_GENERAL,"PortalBlockId",1500, "Poeral Block ID");
-		}catch(Exception e){
-			System.out.println(MODHEAD + e);
-		}finally{
-			cfg.save();
-		}
+    @Mod.EventHandler
+    public void PreInit(FMLPreInitializationEvent event){
+        System.out.print(MODHEAD + "Pre Initialization ...");
+
+        instance = this;
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
 
 
-		//ƒNƒŠƒGƒCƒeƒBƒuƒ^ƒu‚ğ’Ç‰Á‚·‚é
-		CreativeTabs tab = new CreativeTabs(CreativeTabs.getNextID() ,"ingressmod"){
-			@Override
-			@SideOnly(Side.CLIENT)
-			public Item getTabIconItem(){
-				return Items.nether_star;
-			}
-		};
-		//LanguageRegistry.instance().addStringLocalization("itemGroup.ingressmod", "en_US", "IngressMod");//”ñ„§‚ç‚µ‚¢‚Ì‚Åassets/ingressmod/lang‚ğg‚¤
+        //ã‚³ãƒ³ãƒ•ã‚£ã‚°ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹å‡¦ç†
+        Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
+        try{
+            cfg.load();
+            //Property portalBlock = cfg.get(cfg.CATEGORY_GENERAL,"PortalBlockId",1500, "Poeral Block ID");
+        }catch(Exception e){
+            System.out.println(MODHEAD + e);
+        }finally{
+            cfg.save();
+        }
 
 
-		//ƒuƒƒbƒN‚ğ’Ç‰Á‚µ‚Ä‚¢‚­
-		portalBlock = new BlockPortalCore(Material.glass, tab);
-		GameRegistry.registerBlock(portalBlock, portalBlock.getUnlocalizedName());
+        //ã‚¯ãƒªã‚¨ã‚¤ãƒ†ã‚£ãƒ–ã‚¿ãƒ–ã‚’è¿½åŠ ã™ã‚‹
+        CreativeTabs tab = new CreativeTabs(CreativeTabs.getNextID() ,"ingressmod"){
+            @Override
+            @SideOnly(Side.CLIENT)
+            public Item getTabIconItem(){
+                return Items.nether_star;
+            }
+        };
+        //LanguageRegistry.instance().addStringLocalization("itemGroup.ingressmod", "en_US", "IngressMod");//éæ¨å¥¨ã‚‰ã—ã„ã®ã§assets/ingressmod/langã‚’ä½¿ã†
 
 
-		//ƒAƒCƒeƒ€‚ğ’Ç‰Á‚µ‚Ä‚¢‚­
-		Item ingressScanner = new ItemScannerCore(tab);
-		GameRegistry.registerItem(ingressScanner, ingressScanner.getUnlocalizedName());
+        //ãƒ–ãƒ­ãƒƒã‚¯ã‚’è¿½åŠ ã—ã¦ã„ã
+        portalBlock = new BlockPortalCore(Material.glass, tab);
+        GameRegistry.registerBlock(portalBlock, portalBlock.getUnlocalizedName());
 
-		System.out.println("done.");
-	}
 
-	@Mod.EventHandler
-	public void init(FMLInitializationEvent event){
+        //ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ ã—ã¦ã„ã
+        Item ingressScanner = new ItemScannerCore(tab);
+        GameRegistry.registerItem(ingressScanner, ingressScanner.getUnlocalizedName());
+
+        System.out.println("done.");
+    }
+
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent event){
         System.out.println(MODHEAD + "Loading ingress Mod ...");
 
-        // TileEntity‚ğ“o˜^
+        // TileEntityã‚’ç™»éŒ²
         GameRegistry.registerTileEntity(TileEntityPortalCore.class, "TileEntityPortalCore");
 
-        // GuiHandler‚ğ“o˜^
+        // GuiHandlerã‚’ç™»éŒ²
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiPortalCoreHandler());
-	}
+    }
 
 
 }

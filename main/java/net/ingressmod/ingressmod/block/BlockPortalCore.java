@@ -25,7 +25,7 @@ public class BlockPortalCore extends BlockContainer {
 		setLightLevel(1.0F);
 	}
 
-	//ƒuƒƒbƒN‚ª‰EƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚ÉŒÄ‚Ño‚³‚ê‚é
+	//ãƒ–ãƒ­ãƒƒã‚¯ãŒå³ã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã«å‘¼ã³å‡ºã•ã‚Œã‚‹
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float dx, float dy, float dz)
     {
@@ -36,69 +36,37 @@ public class BlockPortalCore extends BlockContainer {
         return true;
     }
 
-    /*
-     * ‚±‚ÌƒuƒƒbƒN‚Åg‚¤TileEntity‚ğ•Ô‚·ƒƒ\ƒbƒh.
-     */
     @Override
     public TileEntity createNewTileEntity(World world, int par2)
     {
         return new TileEntityPortalCore();
     }
 
-    /*
-     * ƒuƒƒbƒN‚ğ‰ó‚µ‚½‚Æ‚«‚É, ƒCƒ“ƒxƒ“ƒgƒŠ‚É•Û‘¶‚³‚ê‚Ä‚¢‚éƒAƒCƒeƒ€‚ğ‘S‚Äƒhƒƒbƒv‚·‚é‚æ‚¤‚É‚·‚é.
-     * ˆø”‚Ì––”ö‚Q‚Â‚Í‚±‚ÌƒuƒƒbƒN‚ÌblockID‚Æƒƒ^ƒf[ƒ^.
-     */
     @Override
     public void breakBlock(World world, int x, int y, int z, Block block, int metadata)
     {
-		/*
-		 * TileEntity‚ğæ“¾‚·‚é.
-		 */
         TileEntityPortalCore tileEntity = (TileEntityPortalCore)world.getTileEntity(x, y, z);
 
         if (tileEntity != null)
         {
-			/*
-			 * ƒhƒƒbƒvˆ—‚Í•Êƒƒ\ƒbƒh‚É.
-			 */
             this.dropItem(tileEntity, world, tileEntity.xCoord, tileEntity.yCoord, tileEntity.zCoord);
         }
-		/*
-		 * •K‚¸ƒX[ƒp[ƒNƒ‰ƒX‚ÌbreakBlock()‚ğŒÄ‚Ô‚±‚Æ.
-		 * “à•”‚ğŒ©‚ê‚Î‚í‚©‚é‚ª, TileEntity‚ğíœ‚·‚é•K—v‚ª‚ ‚é‚½‚ß.
-		 */
         super.breakBlock(world, x, y, z, block, metadata);
     }
 
-    /*
-     * ƒhƒƒbƒvˆ—”Ä—pƒƒ\ƒbƒh.
-     */
     private void dropItem(IInventory iinventory, World world, int xCoord, int yCoord, int zCoord)
     {
-		/*
-		 * ƒCƒ“ƒxƒ“ƒgƒŠ‚ğ‘–¸‚·‚é.
-		 */
         for (int slotIndex = 0; slotIndex < iinventory.getSizeInventory(); ++slotIndex)
         {
             ItemStack itemStack = iinventory.getStackInSlot(slotIndex);
 
-			/*
-			 * ItemStack‚ª‹ó‚È‚çŸ‚Ö
-			 */
             if (itemStack == null)
             {
                 continue ;
             }
 
-			/*
-			 * ItemStack‚ğEntityItem(ƒhƒƒbƒvó‘Ô‚ÌƒAƒCƒeƒ€)‚É‚·‚é.
-			 */
             EntityItem entityitem = new EntityItem(world, (float)xCoord, (float)yCoord, (float)zCoord, itemStack);
 
-			/*
-			 * EntityItem‚ğWorld‚ÉƒXƒ|[ƒ“‚³‚¹‚é.
-			 */
             world.spawnEntityInWorld(entityitem);
         }
     }

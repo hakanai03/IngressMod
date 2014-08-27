@@ -16,17 +16,11 @@ public class ContainerPortalCore extends Container {
         this.inventoryPlayer = inventoryPlayer;
         this.tileEntity      = tileEntity;
 
-		/*
-		 * 1*4のインベントリ
-		 */
         for (int row = 0; row < 4; ++row)
         {
             this.addSlotToContainer(new Slot(tileEntity, row, 98 + row * 18, 64));
         }
 
-		/*
-		 *  3*9のプレイヤーインベントリ
-		 */
         for (int col = 0; col < 3; ++col)
         {
             for (int row = 0; row < 9; ++row)
@@ -35,9 +29,6 @@ public class ContainerPortalCore extends Container {
             }
         }
 
-		/*
-		 *  1*9のプレイヤーインベントリ
-		 */
         for (int row = 0; row < 9; ++row)
         {
             this.addSlotToContainer(new Slot(this.inventoryPlayer, row, 8 + row * 18, 142));
