@@ -1,30 +1,23 @@
 package net.ingressmod.ingressmod;
 
-import java.util.logging.Level;
 
-
-
+import net.ingressmod.ingressmod.block.BlockPortalCore;
+import net.ingressmod.ingressmod.block.TileEntityPortalCore;
+import net.ingressmod.ingressmod.gui.GuiPortalCoreHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemMap;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.Mod.Instance;
-
 
 
 @Mod(
@@ -96,7 +89,13 @@ public class ingressmod {
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event){
-			System.out.println(MODHEAD + "Loading ingress Mod ...");
+        System.out.println(MODHEAD + "Loading ingress Mod ...");
+
+        // TileEntity‚ð“o˜^
+        GameRegistry.registerTileEntity(TileEntityPortalCore.class, "TileEntityPortalCore");
+
+        // GuiHandler‚ð“o˜^
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiPortalCoreHandler());
 	}
 
 
