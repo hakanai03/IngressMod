@@ -1,3 +1,12 @@
 itemGroup.ingressmod=Ingress Mod
-tile.PortalBlock.name=Ingress�|�[�^���u���b�N
-item.scanner.name=�X�L���i�[
+tile.PortalBlock.name=ポータルブロック
+item.scanner.name=スキャナー
+item.resonator1.name=L1 レゾネーター
+item.resonator2.name=L2 レゾネーター
+item.resonator3.name=L3 レゾネーター
+item.resonator4.name=L4 レゾネーター
+item.resonator5.name=L5 レゾネーター
+item.resonator6.name=L6 レゾネーター
+item.resonator7.name=L7 レゾネーター
+item.resonator8.name=L8 レゾネーター
+container.PortalCore=ポータル

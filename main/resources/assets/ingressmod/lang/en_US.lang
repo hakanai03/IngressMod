@@ -1,3 +1,12 @@
 itemGroup.ingressmod=Ingress Mod
 tile.PortalBlock.name=Portal Block
 item.scanner.name=Scanner
+item.resonator1.name=L1 resonator
+item.resonator2.name=L2 resonator
+item.resonator3.name=L3 resonator
+item.resonator4.name=L4 resonator
+item.resonator5.name=L5 resonator
+item.resonator6.name=L6 resonator
+item.resonator7.name=L7 resonator
+item.resonator8.name=L8 resonator
+container.PortalCore=Portal

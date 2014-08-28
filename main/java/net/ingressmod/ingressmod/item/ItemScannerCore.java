@@ -1,4 +1,4 @@
-package net.ingressmod.ingressmod;
+package net.ingressmod.ingressmod.item;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;

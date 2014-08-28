@@ -4,6 +4,8 @@ package net.ingressmod.ingressmod;
 import net.ingressmod.ingressmod.block.BlockPortalCore;
 import net.ingressmod.ingressmod.block.TileEntityPortalCore;
 import net.ingressmod.ingressmod.gui.GuiPortalCoreHandler;
+import net.ingressmod.ingressmod.item.ItemResonatorCore;
+import net.ingressmod.ingressmod.item.ItemScannerCore;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -82,7 +84,24 @@ public class ingressmod {
 
         //アイテムを追加していく
         Item ingressScanner = new ItemScannerCore(tab);
+        Item resonatorL1 = new ItemResonatorCore(tab,1);
+        Item resonatorL2 = new ItemResonatorCore(tab,2);
+        Item resonatorL3 = new ItemResonatorCore(tab,3);
+        Item resonatorL4 = new ItemResonatorCore(tab,4);
+        Item resonatorL5 = new ItemResonatorCore(tab,5);
+        Item resonatorL6 = new ItemResonatorCore(tab,6);
+        Item resonatorL7 = new ItemResonatorCore(tab,7);
+        Item resonatorL8 = new ItemResonatorCore(tab,8);
         GameRegistry.registerItem(ingressScanner, ingressScanner.getUnlocalizedName());
+        GameRegistry.registerItem(resonatorL1, resonatorL1.getUnlocalizedName());
+        GameRegistry.registerItem(resonatorL2, resonatorL2.getUnlocalizedName());
+        GameRegistry.registerItem(resonatorL3, resonatorL3.getUnlocalizedName());
+        GameRegistry.registerItem(resonatorL4, resonatorL4.getUnlocalizedName());
+        GameRegistry.registerItem(resonatorL5, resonatorL5.getUnlocalizedName());
+        GameRegistry.registerItem(resonatorL6, resonatorL6.getUnlocalizedName());
+        GameRegistry.registerItem(resonatorL7, resonatorL7.getUnlocalizedName());
+        GameRegistry.registerItem(resonatorL8, resonatorL8.getUnlocalizedName());
+
 
         System.out.println("done.");
     }
