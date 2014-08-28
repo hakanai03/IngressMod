@@ -4,6 +4,8 @@ package net.ingressmod.ingressmod;
 import net.ingressmod.ingressmod.block.BlockPortalCore;
 import net.ingressmod.ingressmod.block.TileEntityPortalCore;
 import net.ingressmod.ingressmod.gui.GuiPortalCoreHandler;
+import net.ingressmod.ingressmod.item.ItemHeatSinkCore;
+import net.ingressmod.ingressmod.item.ItemPortalShieldCore;
 import net.ingressmod.ingressmod.item.ItemResonatorCore;
 import net.ingressmod.ingressmod.item.ItemScannerCore;
 import net.minecraft.block.Block;
@@ -92,6 +94,12 @@ public class ingressmod {
         Item resonatorL6 = new ItemResonatorCore(tab,6);
         Item resonatorL7 = new ItemResonatorCore(tab,7);
         Item resonatorL8 = new ItemResonatorCore(tab,8);
+        Item heatSinkC = new ItemHeatSinkCore(tab,"C");
+        Item heatSinkR = new ItemHeatSinkCore(tab,"R");
+        Item heatSinkVR = new ItemHeatSinkCore(tab,"VR");
+        Item portalShieldC = new ItemPortalShieldCore(tab,"C");
+        Item portalShieldR = new ItemPortalShieldCore(tab,"R");
+        Item portalShieldVR = new ItemPortalShieldCore(tab,"VR");
         GameRegistry.registerItem(ingressScanner, ingressScanner.getUnlocalizedName());
         GameRegistry.registerItem(resonatorL1, resonatorL1.getUnlocalizedName());
         GameRegistry.registerItem(resonatorL2, resonatorL2.getUnlocalizedName());
@@ -101,7 +109,12 @@ public class ingressmod {
         GameRegistry.registerItem(resonatorL6, resonatorL6.getUnlocalizedName());
         GameRegistry.registerItem(resonatorL7, resonatorL7.getUnlocalizedName());
         GameRegistry.registerItem(resonatorL8, resonatorL8.getUnlocalizedName());
-
+        GameRegistry.registerItem(heatSinkC, heatSinkC.getUnlocalizedName());
+        GameRegistry.registerItem(heatSinkR, heatSinkR.getUnlocalizedName());
+        GameRegistry.registerItem(heatSinkVR, heatSinkVR.getUnlocalizedName());
+        GameRegistry.registerItem(portalShieldC, portalShieldC.getUnlocalizedName());
+        GameRegistry.registerItem(portalShieldR, portalShieldR.getUnlocalizedName());
+        GameRegistry.registerItem(portalShieldVR, portalShieldVR.getUnlocalizedName());
 
         System.out.println("done.");
     }
