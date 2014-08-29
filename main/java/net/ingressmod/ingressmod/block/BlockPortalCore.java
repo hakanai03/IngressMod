@@ -12,7 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockPortalCore extends BlockContainer {
+public class BlockPortalCore extends BlockContainer{
     public static int guiId = 0;
 
 	public BlockPortalCore(Material material,CreativeTabs tab){
