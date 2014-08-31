@@ -10,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockPortalCore extends BlockContainer{
@@ -52,6 +53,11 @@ public class BlockPortalCore extends BlockContainer{
             this.dropItem(tileEntity, world, tileEntity.xCoord, tileEntity.yCoord, tileEntity.zCoord);
         }
         super.breakBlock(world, x, y, z, block, metadata);
+    }
+
+    @Override
+    public boolean isOpaqueCube(){
+        return false;
     }
 
     private void dropItem(IInventory iinventory, World world, int xCoord, int yCoord, int zCoord)
